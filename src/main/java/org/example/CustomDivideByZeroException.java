@@ -3,7 +3,7 @@ package org.example;
 /**
  * Custom exception for dividing by zero.
  */
-public class CustomDivideByZeroException extends  Exception {
+public class CustomDivideByZeroException extends Exception {
     /**
      * The numerator of the failed division operation.
      */
@@ -34,9 +34,16 @@ public class CustomDivideByZeroException extends  Exception {
 
     /**
      * Constructor for the CustomDivideByZeroException.
+     * Accepts and stores the numerator and denominator values.
+     *
+     * @param a The numerator of the failed division operation.
+     * @param b The denominator of the failed division operation.
      */
-    public CustomDivideByZeroException() {
-        // TODO: Modify this constructor to accept and store the two values attempted to be divided
-        super("Attempted to divide by zero");
+    public CustomDivideByZeroException(double a, double b) {
+        // this calls the base class and passes a clear message with the actual numbers
+        super("Attempted to divide " + a + " by " + b + " (Division by Zero Error)");
+        // this saves both values so I can use them later if needed
+        this.a = a;
+        this.b = b;
     }
 }
